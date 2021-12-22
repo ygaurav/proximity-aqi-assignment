@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--List View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="AQIListViewController" customModule="ProximityWorks_AQI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pz5-co-sLz">
+                                <rect key="frame" x="0.0" y="106" width="414" height="756"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="c6k-8d-bxT">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Air Quality Index" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlU-wh-iPq">
+                                <rect key="frame" x="16" y="60" width="382" height="30"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Pz5-co-sLz" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0JP-a4-dpn"/>
+                            <constraint firstItem="Pz5-co-sLz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HMx-2O-EaM"/>
+                            <constraint firstItem="Pz5-co-sLz" firstAttribute="top" secondItem="AlU-wh-iPq" secondAttribute="bottom" constant="16" id="J0q-0P-qJp"/>
+                            <constraint firstItem="AlU-wh-iPq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Lrx-X3-Lt9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AlU-wh-iPq" secondAttribute="trailing" constant="16" id="Rk9-Rk-DBo"/>
+                            <constraint firstItem="Pz5-co-sLz" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="nxH-8e-ftK"/>
+                            <constraint firstItem="AlU-wh-iPq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="y4P-S6-V5h"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="aqiCollectionView" destination="Pz5-co-sLz" id="CD0-Mw-Eg6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="121.73913043478262" y="137.94642857142856"/>
+        </scene>
+        <!--CityAQI Graph View Controller-->
+        <scene sceneID="HPl-Ei-1Hf">
+            <objects>
+                <viewController storyboardIdentifier="CityAQIGraphViewController" id="FAY-un-LDv" customClass="CityAQIGraphViewController" customModule="ProximityWorks_AQI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GvB-De-bFh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ldn-vA-A8F">
+                                <rect key="frame" x="16" y="60" width="59" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Done"/>
+                                <connections>
+                                    <action selector="onDone:" destination="FAY-un-LDv" eventType="touchUpInside" id="VJm-pR-eHn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lF4-Eg-rH4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ldn-vA-A8F" firstAttribute="top" secondItem="lF4-Eg-rH4" secondAttribute="top" constant="16" id="R10-GN-89z"/>
+                            <constraint firstItem="Ldn-vA-A8F" firstAttribute="leading" secondItem="lF4-Eg-rH4" secondAttribute="leading" constant="16" id="eGm-zp-qE0"/>
+                            <constraint firstItem="lF4-Eg-rH4" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ldn-vA-A8F" secondAttribute="trailing" symbolic="YES" id="fFT-ky-PHi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="doneButton" destination="Ldn-vA-A8F" id="gCp-Nu-cx4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iDK-tq-WHy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="871" y="137"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
