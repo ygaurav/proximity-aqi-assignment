@@ -40,10 +40,6 @@ class CityAQIGraphViewController: UIViewController, CityAQIHistoryViewModelDeleg
         chartView.pinchZoomEnabled = false
         chartView.drawGridBackgroundEnabled = false
         
-        let leftAxis = chartView.getAxis(.left)
-        leftAxis.axisMinimum = 0
-        leftAxis.axisMaximum = 500
-        
         chartView.xAxis.valueFormatter = XAxisValueFormatter()
         
         chartView.getAxis(.right).enabled = false
@@ -59,6 +55,13 @@ class CityAQIGraphViewController: UIViewController, CityAQIHistoryViewModelDeleg
     func update(history: [DataPoint]) {
         print(history)
         let entries = history.map { ChartDataEntry(x: $0.x, y: $0.y) }
+        
+        let minY = entries.min { $0.y < $1.y }?.y ?? 0
+        let maxY = entries.max { $0.y > $1.y }?.y ?? 500
+        
+        let leftAxis = chartView.getAxis(.left)
+        leftAxis.axisMinimum = max(0, minY - 50)
+        leftAxis.axisMaximum = min(500, maxY + 50)
         
         DispatchQueue.main.async {
             self.chartView.data = LineChartData(dataSet: self.lineChartDataSet(with: entries))
