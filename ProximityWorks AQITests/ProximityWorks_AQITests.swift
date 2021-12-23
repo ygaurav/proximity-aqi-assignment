@@ -39,6 +39,18 @@ class Proximity_AQITests: XCTestCase {
         XCTAssertEqual(1, aqiViewModel.cityAQIHistories.first(where: { $0.cityName == "Wakanda" })?.aqiHistory.count, "Should have correctly parsed city name")
         XCTAssertEqual(30.0309, aqiViewModel.cityAQIHistories.first(where: { $0.cityName == "Wakanda" })?.aqiHistory.first?.value, "Should have corrrectly parsed AQI value")
     }
+    
+    func test_AQIListViewModel_CorrectlyParseAQIValues_ExistingHistory() {
+        let aqiViewModel = CityAQIListViewController.ViewModel(router: mockAQIListRouter, mockAQIService)
+
+        aqiViewModel.onLoad()
+
+        mockAQIService.completionHandler?(.success(.mockValidMessage_MultipleValues))
+
+        XCTAssertEqual(1, aqiViewModel.cityAQIHistories.count, "Should have had 1 city's AQI history")
+        XCTAssertEqual(2, aqiViewModel.cityAQIHistories.first(where: { $0.cityName == "Wakanda" })?.aqiHistory.count, "2 AQI Values should have been parsed")
+        XCTAssertEqual(30.0309, aqiViewModel.cityAQIHistories.first(where: { $0.cityName == "Wakanda" })?.aqiHistory.first?.value, "Should have corrrectly parsed AQI value")
+    }
 
     func test_AQIListViewModel_ShouldAddTimeStampToAQI() throws {
         let aqiViewModel = CityAQIListViewController.ViewModel(router: mockAQIListRouter, mockAQIService)
@@ -82,6 +94,7 @@ class Proximity_AQITests: XCTestCase {
 
 extension URLSessionWebSocketTask.Message {
     static let mockValidMessage: URLSessionWebSocketTask.Message  = .string("[{ \"city\": \"Wakanda\", \"aqi\": 30.0309 }]")
+    static let mockValidMessage_MultipleValues: URLSessionWebSocketTask.Message  = .string("[{ \"city\": \"Wakanda\", \"aqi\": 30.0309 }, {\"city\":\"Wakanda\", \"aqi\": 31}]")
     static let mockInValidMessage: URLSessionWebSocketTask.Message  = .string("[{ \"cit\": \"Wakanda\", \"aqi\": 30.0309 }]")
 }
 
