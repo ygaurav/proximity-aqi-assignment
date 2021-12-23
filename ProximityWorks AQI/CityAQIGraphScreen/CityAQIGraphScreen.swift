@@ -24,6 +24,18 @@ class CityAQIGraphViewController: UIViewController, CityAQIHistoryViewModelDeleg
         super.viewDidLoad()
         
         view.addSubview(chartView)
+        
+        setupChartView()
+        setupChartConstraints()
+        
+        viewModel.onLoad()
+    }
+    
+    @IBAction func onDone(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
+    
+    func setupChartView() {
         chartView.dragEnabled = false
         chartView.pinchZoomEnabled = false
         chartView.drawGridBackgroundEnabled = false
@@ -35,16 +47,13 @@ class CityAQIGraphViewController: UIViewController, CityAQIHistoryViewModelDeleg
         chartView.xAxis.valueFormatter = XAxisValueFormatter()
         
         chartView.getAxis(.right).enabled = false
-        
-        chartView.topAnchor ==== doneButton.bottomAnchor
-        chartView.leadingAnchor ==|== view.leadingAnchor
-        view.trailingAnchor ==|== chartView.trailingAnchor
-        view.bottomAnchor ==|== chartView.bottomAnchor
-        viewModel.onLoad()
     }
     
-    @IBAction func onDone(_ sender: UIButton) {
-        dismiss(animated: true)
+    private func setupChartConstraints() {
+        chartView.topAnchor ==||== doneButton.bottomAnchor
+        chartView.leadingAnchor ==||== view.leadingAnchor
+        view.trailingAnchor ==||== chartView.trailingAnchor
+        view.bottomAnchor ==||== chartView.bottomAnchor
     }
     
     func update(history: [DataPoint]) {

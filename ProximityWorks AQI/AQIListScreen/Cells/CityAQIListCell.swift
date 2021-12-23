@@ -22,7 +22,7 @@ class CityAQIListCell: UICollectionViewCell {
         stackView.layer.cornerRadius = 5
         cityLabel.text  = model.city
         aqiLabel.textColor = model.bandColor
-        updatedOnLabel.text = model.updateTime.customRelativeDateFormat
+        updatedOnLabel.text = model.updateTime
         
         aqiLabel.text = String(format: "%.2f", model.latestValue)
         

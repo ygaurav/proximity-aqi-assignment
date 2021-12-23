@@ -19,14 +19,14 @@ struct CityAQIHistory: Identifiable, CustomDebugStringConvertible {
     
     var latestUpdate: AQIUpdate {
         guard aqiHistory.count >= 1 else {
-            fatalError("Cannot create AQI history without even a single entry")
+            fatalError("Cannot create AQI history 0 entries.")
         }
         
         let latestAQI = aqiHistory[aqiHistory.endIndex - 1]
 
         let previous = aqiHistory.indices.contains(aqiHistory.endIndex - 2) ? aqiHistory[aqiHistory.endIndex - 2] : nil
         
-        return AQIUpdate(latestAQI, previous: previous)
+        return AQIUpdate(cityName, latestAQI, previous: previous)
     }
     
     init(_ name: String, aqiHistory: [AQI]) {
@@ -44,15 +44,13 @@ struct CityAQIHistory: Identifiable, CustomDebugStringConvertible {
 }
 
 struct AQI: Hashable, CustomDebugStringConvertible  {
-    let city: String
     let value: Float
     let timestamp: Date
     
     var aqiBandColor: UIColor { aqiBand.color }
     var aqiBand: AQIBand { AQIBand(value) }
     
-    init(city: String, value: Float, timestamp: Date) {
-        self.city = city
+    init(value: Float, timestamp: Date) {
         self.value = value
         self.timestamp = timestamp
     }
@@ -63,7 +61,7 @@ struct AQI: Hashable, CustomDebugStringConvertible  {
     }
     
     var debugDescription: String {
-        "\(city): \(value) - \(timestamp.formatted(.relative(presentation: .numeric)))"
+        "\(value) - \(timestamp.formatted(.relative(presentation: .numeric)))"
     }
 }
 
@@ -76,9 +74,10 @@ struct AQIUpdate: Hashable {
     private let previousAQI: AQI?
     private let latestAQI: AQI
     
+    let city: String
+    
     var latestValue: Float { latestAQI.value }
-    var city: String { latestAQI.city }
-    var updateTime: Date { latestAQI.timestamp }
+    let updateTime: String
     var bandColor: UIColor { latestAQI.aqiBandColor }
     
     var didBandChange: Bool {
@@ -86,13 +85,21 @@ struct AQIUpdate: Hashable {
         return latestAQI.aqiBand != previous.aqiBand
     }
     
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(city)
+        hasher.combine(latestValue)
+        hasher.combine(updateTime)
+    }
+    
     var aqiBandImproved: Bool {
         guard let previous = previousAQI else { return false }
         return latestAQI.aqiBand > previous.aqiBand
     }
     
-    init(_  update: AQI, previous: AQI? = nil) {
+    init(_ city: String, _ update: AQI, previous: AQI? = nil) {
         self.latestAQI = update
+        self.updateTime = latestAQI.timestamp.customRelativeDateFormat
         self.previousAQI = previous
+        self.city = city
     }
 }

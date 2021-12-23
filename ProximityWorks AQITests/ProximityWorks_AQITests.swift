@@ -66,7 +66,7 @@ class Proximity_AQITests: XCTestCase {
         let aqiViewModel = CityAQIListViewController.ViewModel(router: mockAQIListRouter, mockAQIService)
         aqiViewModel.cityAQIHistories = [.init("test-city", aqiHistory: [])]
         
-        aqiViewModel.onSelect(AQIUpdate(AQI(city: "test-city", value: 10.1, timestamp: Date.now)))
+        aqiViewModel.onSelect(AQIUpdate("test-city", AQI(value: 10.1, timestamp: Date.now)))
 
         XCTAssertEqual("test-city", mockAQIListRouter.cityAQIHistory?.cityName, "ViewModel should have passed selected city history to Router")
     }
@@ -74,7 +74,7 @@ class Proximity_AQITests: XCTestCase {
     func test_AQIListViewModel_EmptyHistory_ShouldntCallRouterOnSelect() {
         let aqiViewModel = CityAQIListViewController.ViewModel(router: mockAQIListRouter, mockAQIService)
         
-        aqiViewModel.onSelect(AQIUpdate(AQI(city: "test-city", value: 10.1, timestamp: Date.now)))
+        aqiViewModel.onSelect(AQIUpdate("", AQI(value: 10.1, timestamp: Date.now)))
 
         XCTAssertNil(mockAQIListRouter.cityAQIHistory, "ViewModel should not have passed selected city history if its not in viewModel")
     }

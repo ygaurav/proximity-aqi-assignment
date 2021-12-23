@@ -49,7 +49,7 @@ extension CityAQIGraphViewController {
                     let aqiModels = try result.parseMessage()
                     
                     if let aqi = aqiModels.first(where: { $0.city == self.cityAqiHistory.cityName })?.aqi {
-                        self.cityAqiHistory.add(AQI(city: self.cityAqiHistory.cityName, value: aqi, timestamp: Date()))
+                        self.cityAqiHistory.add(AQI(value: aqi, timestamp: Date()))
                     }
                 } catch {
                     print("Error fetching data - \(error.localizedDescription)")

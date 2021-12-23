@@ -37,4 +37,20 @@ class HelperTests: XCTestCase {
         XCTAssert(AQIBand.poor > AQIBand.veryPoor, "Poor is better than VeryPoor")
         XCTAssert(AQIBand.veryPoor > AQIBand.severe, "VeryPoor is better than Severe")
     }
+    
+    func test_AQIJsonModelParsing_Success() throws {
+        let result: Result<URLSessionWebSocketTask.Message, Error> = .success(.string("[{ \"city\":\"Wakanda\", \"aqi\":30.08 }]"))
+        
+        let aqiModels = try result.parseMessage()
+        
+        XCTAssertEqual(1, aqiModels.count, "1 AQI Model should have been parsed")
+        XCTAssertEqual("Wakanda", aqiModels.first?.city, "Parsed AQI Model city should have been 'Wakanda'")
+        XCTAssertEqual(30.08, aqiModels.first?.aqi, "Parsed AQI Model aqi value should have been 30.08")
+    }
+    
+    func test_AQIJsonModelParsing_Fail() throws {
+        let result: Result<URLSessionWebSocketTask.Message, Error> = .success(.string("[{ \"cit\":\"Wakanda\", \"aqi\":30.08 }]"))
+        
+        XCTAssertThrowsError(try result.parseMessage(), "AQI Model Parsing should have failed")
+    }
 }

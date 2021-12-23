@@ -59,10 +59,10 @@ extension CityAQIListViewController {
                     for aqiModel in aqiModels {
                         if let index = self.cityAQIHistories.firstIndex(where: { $0.cityName == aqiModel.city }) {
                             var cityAQIHistory = self.cityAQIHistories.remove(at: index)
-                            cityAQIHistory.add(AQI(city: aqiModel.city, value: aqiModel.aqi, timestamp: now))
+                            cityAQIHistory.add(AQI(value: aqiModel.aqi, timestamp: now))
                             self.cityAQIHistories.append(cityAQIHistory)
                         } else {
-                            self.cityAQIHistories.append(CityAQIHistory(aqiModel.city, aqiHistory: [AQI(city: aqiModel.city, value: aqiModel.aqi, timestamp: now)]))
+                            self.cityAQIHistories.append(CityAQIHistory(aqiModel.city, aqiHistory: [AQI(value: aqiModel.aqi, timestamp: now)]))
                         }
                     }
                     self.receiveMessage()

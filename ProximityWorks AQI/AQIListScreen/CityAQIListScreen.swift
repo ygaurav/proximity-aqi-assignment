@@ -56,9 +56,7 @@ class CityAQIListViewController: UIViewController, UICollectionViewDelegate, Cit
         snapshot.deleteAllItems()
         snapshot.appendSections([.main])
         snapshot.appendItems(aqis, toSection: .main)
-        snapshot.reloadSections([.main])
-        aqiDatasource.applySnapshotUsingReloadData(snapshot)
-        
+        aqiDatasource.apply(snapshot)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
