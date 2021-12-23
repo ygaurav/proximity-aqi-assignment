@@ -42,26 +42,6 @@ public func ==== (lhs: NSLayoutDimension, rhs: CGFloat) {
     lhs.constraint(equalToConstant: rhs).isActive = true
 }
 
-infix operator <== :  AssignmentPrecedence
-
-public func <== (lhs: NSLayoutYAxisAnchor, rhs: NSLayoutYAxisAnchor) {
-    lhs.constraint(lessThanOrEqualTo: rhs).isActive = true
-}
-
-public func <== (lhs: NSLayoutXAxisAnchor, rhs: NSLayoutXAxisAnchor) {
-    lhs.constraint(lessThanOrEqualTo: rhs).isActive = true
-}
-
-infix operator >== : AssignmentPrecedence
-
-public func >== (lhs: NSLayoutYAxisAnchor, rhs: NSLayoutYAxisAnchor) {
-    lhs.constraint(greaterThanOrEqualTo: rhs).isActive = true
-}
-
-public func >== (lhs: NSLayoutXAxisAnchor, rhs: NSLayoutXAxisAnchor) {
-    lhs.constraint(greaterThanOrEqualTo: rhs).isActive = true
-}
-
 // Anchor with additional 8 points
 infix operator ==|== :  AssignmentPrecedence
 

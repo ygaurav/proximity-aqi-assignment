@@ -12,23 +12,24 @@
 		A5A847A42772514300C6D74F /* Charts.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A847A22772514300C6D74F /* Charts.xcframework */; };
 		A5A847A52772514300C6D74F /* Charts.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A5A847A22772514300C6D74F /* Charts.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A5A847AA27725BBE00C6D74F /* ConstraintsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A847A927725BBE00C6D74F /* ConstraintsExtension.swift */; };
-		A5A847AC2772F28500C6D74F /* AQIListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A847AB2772F28500C6D74F /* AQIListRouter.swift */; };
+		A5A847AC2772F28500C6D74F /* CityAQIListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A847AB2772F28500C6D74F /* CityAQIListRouter.swift */; };
 		A5A847B027739B5600C6D74F /* HelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A847AF27739B5600C6D74F /* HelperTests.swift */; };
 		A5C46FF527720D60006B6371 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C46FF427720D60006B6371 /* AppDelegate.swift */; };
 		A5C46FF727720D60006B6371 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C46FF627720D60006B6371 /* SceneDelegate.swift */; };
-		A5C46FF927720D60006B6371 /* AQIListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C46FF827720D60006B6371 /* AQIListScreen.swift */; };
+		A5C46FF927720D60006B6371 /* CityAQIListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C46FF827720D60006B6371 /* CityAQIListScreen.swift */; };
 		A5C46FFC27720D60006B6371 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C46FFA27720D60006B6371 /* Main.storyboard */; };
 		A5C46FFE27720D62006B6371 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5C46FFD27720D62006B6371 /* Assets.xcassets */; };
 		A5C4700127720D62006B6371 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C46FFF27720D62006B6371 /* LaunchScreen.storyboard */; };
 		A5C4700C27720D62006B6371 /* ProximityWorks_AQITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4700B27720D62006B6371 /* ProximityWorks_AQITests.swift */; };
 		A5C4701627720D62006B6371 /* ProximityWorks_AQIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4701527720D62006B6371 /* ProximityWorks_AQIUITests.swift */; };
 		A5C4701827720D62006B6371 /* ProximityWorks_AQIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4701727720D62006B6371 /* ProximityWorks_AQIUITestsLaunchTests.swift */; };
-		A5C4702627720FF3006B6371 /* AQIListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4702527720FF3006B6371 /* AQIListViewModel.swift */; };
-		A5C4702927721068006B6371 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4702727721068006B6371 /* Constants.swift */; };
+		A5C4702627720FF3006B6371 /* CityAQIListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4702527720FF3006B6371 /* CityAQIListViewModel.swift */; };
+		A5C4702927721068006B6371 /* HelperExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4702727721068006B6371 /* HelperExtension.swift */; };
 		A5C4702A27721068006B6371 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4702827721068006B6371 /* Models.swift */; };
 		A5C4702C277210A0006B6371 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4702B277210A0006B6371 /* APIClient.swift */; };
-		A5C4702F27721190006B6371 /* AQIListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4702D27721190006B6371 /* AQIListCell.swift */; };
-		A5C4703027721190006B6371 /* AQIListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5C4702E27721190006B6371 /* AQIListCell.xib */; };
+		A5C4702F27721190006B6371 /* CityAQIListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4702D27721190006B6371 /* CityAQIListCell.swift */; };
+		A5C4703027721190006B6371 /* CityAQIListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5C4702E27721190006B6371 /* CityAQIListCell.xib */; };
+		A5D01E982774C426002C2B6E /* AQIBand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D01E972774C426002C2B6E /* AQIBand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,12 +69,12 @@
 		A5A847A22772514300C6D74F /* Charts.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Charts.xcframework; path = Carthage/Build/Charts.xcframework; sourceTree = "<group>"; };
 		A5A847A32772514300C6D74F /* SwiftCharts.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SwiftCharts.xcframework; path = Carthage/Build/SwiftCharts.xcframework; sourceTree = "<group>"; };
 		A5A847A927725BBE00C6D74F /* ConstraintsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsExtension.swift; sourceTree = "<group>"; };
-		A5A847AB2772F28500C6D74F /* AQIListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIListRouter.swift; sourceTree = "<group>"; };
+		A5A847AB2772F28500C6D74F /* CityAQIListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityAQIListRouter.swift; sourceTree = "<group>"; };
 		A5A847AF27739B5600C6D74F /* HelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperTests.swift; sourceTree = "<group>"; };
 		A5C46FF127720D60006B6371 /* ProximityWorks AQI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ProximityWorks AQI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5C46FF427720D60006B6371 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5C46FF627720D60006B6371 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A5C46FF827720D60006B6371 /* AQIListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIListScreen.swift; sourceTree = "<group>"; };
+		A5C46FF827720D60006B6371 /* CityAQIListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityAQIListScreen.swift; sourceTree = "<group>"; };
 		A5C46FFB27720D60006B6371 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A5C46FFD27720D62006B6371 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5C4700027720D62006B6371 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -83,12 +84,13 @@
 		A5C4701127720D62006B6371 /* ProximityWorks AQIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ProximityWorks AQIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5C4701527720D62006B6371 /* ProximityWorks_AQIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximityWorks_AQIUITests.swift; sourceTree = "<group>"; };
 		A5C4701727720D62006B6371 /* ProximityWorks_AQIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximityWorks_AQIUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		A5C4702527720FF3006B6371 /* AQIListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIListViewModel.swift; sourceTree = "<group>"; };
-		A5C4702727721068006B6371 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A5C4702527720FF3006B6371 /* CityAQIListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityAQIListViewModel.swift; sourceTree = "<group>"; };
+		A5C4702727721068006B6371 /* HelperExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperExtension.swift; sourceTree = "<group>"; };
 		A5C4702827721068006B6371 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		A5C4702B277210A0006B6371 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
-		A5C4702D27721190006B6371 /* AQIListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIListCell.swift; sourceTree = "<group>"; };
-		A5C4702E27721190006B6371 /* AQIListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AQIListCell.xib; sourceTree = "<group>"; };
+		A5C4702D27721190006B6371 /* CityAQIListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityAQIListCell.swift; sourceTree = "<group>"; };
+		A5C4702E27721190006B6371 /* CityAQIListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityAQIListCell.xib; sourceTree = "<group>"; };
+		A5D01E972774C426002C2B6E /* AQIBand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIBand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,8 +140,8 @@
 		A5A847AD27730DBA00C6D74F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				A5C4702D27721190006B6371 /* AQIListCell.swift */,
-				A5C4702E27721190006B6371 /* AQIListCell.xib */,
+				A5C4702D27721190006B6371 /* CityAQIListCell.swift */,
+				A5C4702E27721190006B6371 /* CityAQIListCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -147,8 +149,9 @@
 		A5A847AE27730DDB00C6D74F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				A5C4702727721068006B6371 /* Constants.swift */,
+				A5C4702727721068006B6371 /* HelperExtension.swift */,
 				A5A847A927725BBE00C6D74F /* ConstraintsExtension.swift */,
+				A5D01E972774C426002C2B6E /* AQIBand.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 		A5C46FF327720D60006B6371 /* ProximityWorks AQI */ = {
 			isa = PBXGroup;
 			children = (
+				A5D01E962774C15C002C2B6E /* Networking */,
 				A5A847AE27730DDB00C6D74F /* Helpers */,
 				A5A8479C27724AFD00C6D74F /* CityAQIGraphScreen */,
 				A5C4702827721068006B6371 /* Models.swift */,
@@ -187,7 +191,6 @@
 				A5C46FFD27720D62006B6371 /* Assets.xcassets */,
 				A5C46FFF27720D62006B6371 /* LaunchScreen.storyboard */,
 				A5C4700227720D62006B6371 /* Info.plist */,
-				A5C4702B277210A0006B6371 /* APIClient.swift */,
 			);
 			path = "ProximityWorks AQI";
 			sourceTree = "<group>";
@@ -214,11 +217,19 @@
 			isa = PBXGroup;
 			children = (
 				A5A847AD27730DBA00C6D74F /* Cells */,
-				A5C46FF827720D60006B6371 /* AQIListScreen.swift */,
-				A5C4702527720FF3006B6371 /* AQIListViewModel.swift */,
-				A5A847AB2772F28500C6D74F /* AQIListRouter.swift */,
+				A5C46FF827720D60006B6371 /* CityAQIListScreen.swift */,
+				A5C4702527720FF3006B6371 /* CityAQIListViewModel.swift */,
+				A5A847AB2772F28500C6D74F /* CityAQIListRouter.swift */,
 			);
 			path = AQIListScreen;
+			sourceTree = "<group>";
+		};
+		A5D01E962774C15C002C2B6E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A5C4702B277210A0006B6371 /* APIClient.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,7 +340,7 @@
 				A5C4700127720D62006B6371 /* LaunchScreen.storyboard in Resources */,
 				A5C46FFE27720D62006B6371 /* Assets.xcassets in Resources */,
 				A5C46FFC27720D60006B6371 /* Main.storyboard in Resources */,
-				A5C4703027721190006B6371 /* AQIListCell.xib in Resources */,
+				A5C4703027721190006B6371 /* CityAQIListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,12 +367,13 @@
 			files = (
 				A5A847A027724C5A00C6D74F /* CityAQIGraphViewModel.swift in Sources */,
 				A5A8479E27724B2C00C6D74F /* CityAQIGraphScreen.swift in Sources */,
-				A5A847AC2772F28500C6D74F /* AQIListRouter.swift in Sources */,
-				A5C4702927721068006B6371 /* Constants.swift in Sources */,
+				A5D01E982774C426002C2B6E /* AQIBand.swift in Sources */,
+				A5A847AC2772F28500C6D74F /* CityAQIListRouter.swift in Sources */,
+				A5C4702927721068006B6371 /* HelperExtension.swift in Sources */,
 				A5C4702C277210A0006B6371 /* APIClient.swift in Sources */,
-				A5C4702627720FF3006B6371 /* AQIListViewModel.swift in Sources */,
-				A5C4702F27721190006B6371 /* AQIListCell.swift in Sources */,
-				A5C46FF927720D60006B6371 /* AQIListScreen.swift in Sources */,
+				A5C4702627720FF3006B6371 /* CityAQIListViewModel.swift in Sources */,
+				A5C4702F27721190006B6371 /* CityAQIListCell.swift in Sources */,
+				A5C46FF927720D60006B6371 /* CityAQIListScreen.swift in Sources */,
 				A5C4702A27721068006B6371 /* Models.swift in Sources */,
 				A5A847AA27725BBE00C6D74F /* ConstraintsExtension.swift in Sources */,
 				A5C46FF527720D60006B6371 /* AppDelegate.swift in Sources */,

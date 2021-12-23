@@ -1,17 +1,12 @@
 //
-//  Constants.swift
-//  Proximity AQI
+//  AQIBand.swift
+//  ProximityWorks AQI
 //
-//  Created by Gaurav Yadav on 18/12/21.
+//  Created by Gaurav Yadav on 23/12/21.
 //
 
 import Foundation
-import SwiftUI
-
-
-extension URL {
-    static let aqiURL = URL(string: "ws://city-ws.herokuapp.com")!
-}
+import UIKit
 
 enum AQIBand: Int, Comparable, CustomDebugStringConvertible {
     
@@ -69,29 +64,6 @@ enum AQIBand: Int, Comparable, CustomDebugStringConvertible {
             return "very poor"
         case .severe:
             return "severe"
-        }
-    }
-}
-
-extension Date {
-    var customRelativeDateFormat: String {
-        let relativity = -timeIntervalSinceNow
-        
-        switch relativity {
-        case 0..<5:
-            return "Just now"
-        case 5..<10:
-            return "A few seconds ago"
-        case 10..<30:
-            return "Less than a minute ago"
-        case 30..<60:
-            return "Almost a minute ago"
-        case 60..<120:
-            return "A min ago"
-        case 120..<600:
-            return "Few mins ago"
-        default:
-            return "A while ago"
         }
     }
 }

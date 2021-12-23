@@ -7,13 +7,15 @@
 
 import UIKit
 
-class AQIListCell: UICollectionViewCell {
+class CityAQIListCell: UICollectionViewCell {
 
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var aqiLabel: UILabel!
     @IBOutlet weak var updatedOnLabel: UILabel!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var bandChangeImageView: UIImageView!
+    
+    static let reuseIdentifier = "AQIListCell"
     
     func setup(_ model: AQIUpdate) {
         stackView.backgroundColor = .systemGray5

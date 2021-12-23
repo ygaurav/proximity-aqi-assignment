@@ -7,13 +7,13 @@
 
 import UIKit
 
-class AQIListViewController: UIViewController, UICollectionViewDelegate, AQIListViewModelDelegate {
+class CityAQIListViewController: UIViewController, UICollectionViewDelegate, CityAQIListViewModelDelegate {
     
     @IBOutlet weak var aqiCollectionView: UICollectionView!
     
     var aqiDatasource: UICollectionViewDiffableDataSource<AQIListSection, AQIUpdate>!
     
-    var viewModel: AQIListViewModel!
+    var viewModel: CityAQIListViewModel!
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -35,7 +35,7 @@ class AQIListViewController: UIViewController, UICollectionViewDelegate, AQIList
     
     func configureDatasource() {
         aqiDatasource = UICollectionViewDiffableDataSource(collectionView: aqiCollectionView) { collectionView, indexPath, item -> UICollectionViewCell? in
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AQIListCell", for: indexPath) as? AQIListCell else { return nil }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CityAQIListCell.reuseIdentifier, for: indexPath) as? CityAQIListCell else { return nil }
             cell.setup(item)
             return cell
         }
@@ -48,7 +48,7 @@ class AQIListViewController: UIViewController, UICollectionViewDelegate, AQIList
     }
     
     func registerCells() {
-        aqiCollectionView.register(UINib(nibName: "AQIListCell", bundle: .main), forCellWithReuseIdentifier: "AQIListCell")
+        aqiCollectionView.register(.aqiListCell, forCellWithReuseIdentifier: CityAQIListCell.reuseIdentifier)
     }
     
     func updateSnapshot(with aqis: [AQIUpdate]) {
@@ -58,7 +58,6 @@ class AQIListViewController: UIViewController, UICollectionViewDelegate, AQIList
         snapshot.appendItems(aqis, toSection: .main)
         snapshot.reloadSections([.main])
         aqiDatasource.applySnapshotUsingReloadData(snapshot)
-//        aqiDatasource.apply(snapshot)
         
     }
     

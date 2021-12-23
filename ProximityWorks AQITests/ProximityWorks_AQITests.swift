@@ -19,7 +19,7 @@ class Proximity_AQITests: XCTestCase {
     }
 
     func test_AQIListViewModel_ResumeCalledAfter() {
-        let aqiViewModel = AQIListViewController.ViewModel(router: mockAQIListRouter, mockAQIService)
+        let aqiViewModel = CityAQIListViewController.ViewModel(router: mockAQIListRouter, mockAQIService)
 
         XCTAssertFalse(mockAQIService.resumeCalled, "ViewModel should not start receiving updates without calling 'startReceivingUpdates'")
 
@@ -29,7 +29,7 @@ class Proximity_AQITests: XCTestCase {
     }
 
     func test_AQIListViewModel_CorrectlyParseAQIValues() {
-        let aqiViewModel = AQIListViewController.ViewModel(router: mockAQIListRouter, mockAQIService)
+        let aqiViewModel = CityAQIListViewController.ViewModel(router: mockAQIListRouter, mockAQIService)
 
         aqiViewModel.onLoad()
 
@@ -41,7 +41,7 @@ class Proximity_AQITests: XCTestCase {
     }
 
     func test_AQIListViewModel_ShouldAddTimeStampToAQI() throws {
-        let aqiViewModel = AQIListViewController.ViewModel(router: mockAQIListRouter, mockAQIService)
+        let aqiViewModel = CityAQIListViewController.ViewModel(router: mockAQIListRouter, mockAQIService)
 
         aqiViewModel.onLoad()
 
@@ -53,7 +53,7 @@ class Proximity_AQITests: XCTestCase {
     }
 
     func test_AQIListViewModel_FailToParseAQIValues() {
-        let aqiViewModel = AQIListViewController.ViewModel(router: mockAQIListRouter, mockAQIService)
+        let aqiViewModel = CityAQIListViewController.ViewModel(router: mockAQIListRouter, mockAQIService)
 
         aqiViewModel.onLoad()
 
@@ -63,7 +63,7 @@ class Proximity_AQITests: XCTestCase {
     }
     
     func test_AQIListViewModel_CallRouterOnSelect() {
-        let aqiViewModel = AQIListViewController.ViewModel(router: mockAQIListRouter, mockAQIService)
+        let aqiViewModel = CityAQIListViewController.ViewModel(router: mockAQIListRouter, mockAQIService)
         aqiViewModel.cityAQIHistories = [.init("test-city", aqiHistory: [])]
         
         aqiViewModel.onSelect(AQIUpdate(AQI(city: "test-city", value: 10.1, timestamp: Date.now)))
@@ -72,7 +72,7 @@ class Proximity_AQITests: XCTestCase {
     }
     
     func test_AQIListViewModel_EmptyHistory_ShouldntCallRouterOnSelect() {
-        let aqiViewModel = AQIListViewController.ViewModel(router: mockAQIListRouter, mockAQIService)
+        let aqiViewModel = CityAQIListViewController.ViewModel(router: mockAQIListRouter, mockAQIService)
         
         aqiViewModel.onSelect(AQIUpdate(AQI(city: "test-city", value: 10.1, timestamp: Date.now)))
 
@@ -101,7 +101,7 @@ class MockAQIService: AQIService {
     
 }
 
-class MockAQIListRouter: AQIListRouter {
+class MockAQIListRouter: CityAQIListRouter {
     
     var cityAQIHistory: CityAQIHistory?
     

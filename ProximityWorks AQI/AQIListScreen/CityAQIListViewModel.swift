@@ -7,27 +7,27 @@
 
 import Foundation
 
-protocol AQIListViewModelDelegate: AnyObject {
+protocol CityAQIListViewModelDelegate: AnyObject {
     func updateSnapshot(with: [AQIUpdate])
 }
 
-protocol AQIListViewModel {
-    var viewDelegate: AQIListViewModelDelegate? { get set }
+protocol CityAQIListViewModel {
+    var viewDelegate: CityAQIListViewModelDelegate? { get set }
     func onLoad()
     func onSelect(_: AQIUpdate)
 }
 
-extension AQIListViewController {
+extension CityAQIListViewController {
     
-    class ViewModel: AQIListViewModel {
+    class ViewModel: CityAQIListViewModel {
         
         var cityAQIHistories = [CityAQIHistory]()
         
         private weak var aqiService: AQIService?
-        private var router: AQIListRouter
-        weak var viewDelegate: AQIListViewModelDelegate?
+        private var router: CityAQIListRouter
+        weak var viewDelegate: CityAQIListViewModelDelegate?
         
-        init(router: AQIListRouter, _ service: AQIService = APIClient.shared.websocketTask(with: .aqiURL)) {
+        init(router: CityAQIListRouter, _ service: AQIService = APIClient.shared.websocketTask(with: .aqiURL)) {
             self.aqiService = service
             self.router = router
         }

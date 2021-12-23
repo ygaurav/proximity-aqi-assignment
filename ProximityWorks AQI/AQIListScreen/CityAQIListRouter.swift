@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-protocol AQIListRouter {
+protocol CityAQIListRouter {
     func showGraph(for: CityAQIHistory)
 }
 
-extension AQIListViewController {
+extension CityAQIListViewController {
     
-    class Router: AQIListRouter {
+    class Router: CityAQIListRouter {
         
         weak var source: UIViewController?
         
