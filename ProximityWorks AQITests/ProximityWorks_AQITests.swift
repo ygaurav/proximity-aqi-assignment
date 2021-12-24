@@ -92,7 +92,7 @@ class Proximity_AQITests: XCTestCase {
     }
 }
 
-extension URLSessionWebSocketTask.Message {
+private extension URLSessionWebSocketTask.Message {
     static let mockValidMessage: URLSessionWebSocketTask.Message  = .string("[{ \"city\": \"Wakanda\", \"aqi\": 30.0309 }]")
     static let mockValidMessage_MultipleValues: URLSessionWebSocketTask.Message  = .string("[{ \"city\": \"Wakanda\", \"aqi\": 30.0309 }, {\"city\":\"Wakanda\", \"aqi\": 31}]")
     static let mockInValidMessage: URLSessionWebSocketTask.Message  = .string("[{ \"cit\": \"Wakanda\", \"aqi\": 30.0309 }]")

@@ -17,7 +17,7 @@ protocol CityAQIGraphViewModel {
 
 extension CityAQIGraphViewController {
     
-    class ViewModel: CityAQIGraphViewModel {
+    final class ViewModel: CityAQIGraphViewModel {
         
         var cityAqiHistory: CityAQIHistory
         

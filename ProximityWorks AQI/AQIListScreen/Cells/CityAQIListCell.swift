@@ -28,7 +28,7 @@ class CityAQIListCell: UICollectionViewCell {
         
         if model.didBandChange {
             bandChangeImageView.isHidden = false
-            let config = UIImage.SymbolConfiguration(pointSize: 14, weight: .regular, scale: .small)
+            let config = UIImage.SymbolConfiguration(pointSize: 14, weight: .semibold, scale: .small)
             let image = UIImage(systemName: model.aqiBandImproved ? "arrow.up" : "arrow.down", withConfiguration: config)
             bandChangeImageView.image = image
             bandChangeImageView.tintColor = model.aqiBandImproved ? .systemGreen : .systemRed

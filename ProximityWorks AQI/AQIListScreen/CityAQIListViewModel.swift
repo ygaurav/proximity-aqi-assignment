@@ -19,7 +19,7 @@ protocol CityAQIListViewModel {
 
 extension CityAQIListViewController {
     
-    class ViewModel: CityAQIListViewModel {
+    final class ViewModel: CityAQIListViewModel {
         
         var cityAQIHistories = [CityAQIHistory]()
         

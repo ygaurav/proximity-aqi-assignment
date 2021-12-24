@@ -31,6 +31,7 @@
 		A5C4703027721190006B6371 /* CityAQIListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5C4702E27721190006B6371 /* CityAQIListCell.xib */; };
 		A5D01E982774C426002C2B6E /* AQIBand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D01E972774C426002C2B6E /* AQIBand.swift */; };
 		A5D01E9A2774EE76002C2B6E /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D01E992774EE76002C2B6E /* ModelTests.swift */; };
+		A5D01E9C2775E0E4002C2B6E /* CityAQIGraphViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D01E9B2775E0E4002C2B6E /* CityAQIGraphViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		A5C4702E27721190006B6371 /* CityAQIListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityAQIListCell.xib; sourceTree = "<group>"; };
 		A5D01E972774C426002C2B6E /* AQIBand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIBand.swift; sourceTree = "<group>"; };
 		A5D01E992774EE76002C2B6E /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
+		A5D01E9B2775E0E4002C2B6E /* CityAQIGraphViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityAQIGraphViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 		A5C4700A27720D62006B6371 /* ProximityWorks AQITests */ = {
 			isa = PBXGroup;
 			children = (
+				A5D01E9B2775E0E4002C2B6E /* CityAQIGraphViewModelTests.swift */,
 				A5D01E992774EE76002C2B6E /* ModelTests.swift */,
 				A5A847AF27739B5600C6D74F /* HelperTests.swift */,
 				A5C4700B27720D62006B6371 /* ProximityWorks_AQITests.swift */,
@@ -388,6 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5D01E9C2775E0E4002C2B6E /* CityAQIGraphViewModelTests.swift in Sources */,
 				A5D01E9A2774EE76002C2B6E /* ModelTests.swift in Sources */,
 				A5C4700C27720D62006B6371 /* ProximityWorks_AQITests.swift in Sources */,
 				A5A847B027739B5600C6D74F /* HelperTests.swift in Sources */,

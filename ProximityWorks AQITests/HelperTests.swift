@@ -38,6 +38,12 @@ class HelperTests: XCTestCase {
         XCTAssert(AQIBand.veryPoor > AQIBand.severe, "VeryPoor is better than Severe")
     }
     
+    func test_AQIBandImproved() {
+        XCTAssert(AQIUpdate("", AQI(value: 299, timestamp: .now), previous: AQI(value: 301, timestamp: .now)).aqiBandImproved, "AQI Band should have improved if AQI value goes down")
+        
+        XCTAssertFalse(AQIUpdate("", AQI(value: 301, timestamp: .now), previous: AQI(value: 299, timestamp: .now)).aqiBandImproved, "AQI Band should not have improved if AQI value goes up")
+    }
+    
     func test_AQIJsonModelParsing_Success() throws {
         let result: Result<URLSessionWebSocketTask.Message, Error> = .success(.string("[{ \"city\":\"Wakanda\", \"aqi\":30.08 }]"))
         
