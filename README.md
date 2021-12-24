@@ -31,4 +31,4 @@
 1. Conforms to `AQIService`. Provies websocket connection & completion handler for receiving messages.
 
 ### PS:
-Unfortunately I didn't have time to do this better. There are still lot of changes (UI & logic), unit tests remaining I would have liked to have done. I can see some bugs as well. I have only done a single commit which is unlike I would gave done during work.
+Comments & known bugs are added.
