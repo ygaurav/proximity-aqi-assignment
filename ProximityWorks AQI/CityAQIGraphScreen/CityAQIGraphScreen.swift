@@ -47,9 +47,9 @@ class CityAQIGraphViewController: UIViewController, CityAQIHistoryViewModelDeleg
     
     private func setupChartConstraints() {
         chartView.topAnchor ==||== doneButton.bottomAnchor
-        chartView.leadingAnchor ==||== view.leadingAnchor
-        view.trailingAnchor ==||== chartView.trailingAnchor
-        view.bottomAnchor ==||== chartView.bottomAnchor
+        chartView.safeAreaLayoutGuide.leadingAnchor ==||== view.safeAreaLayoutGuide.leadingAnchor
+        view.safeAreaLayoutGuide.trailingAnchor ==||== chartView.safeAreaLayoutGuide.trailingAnchor
+        view.safeAreaLayoutGuide.bottomAnchor ==||== chartView.safeAreaLayoutGuide.bottomAnchor
     }
     
     func update(history: [DataPoint]) {
@@ -58,6 +58,7 @@ class CityAQIGraphViewController: UIViewController, CityAQIHistoryViewModelDeleg
         // Graph's Y axis
         // Min is 50 less than minimum value of chart data point
         // Max is 50 more than maximum value of chart data point
+        // This is to show visible deviation i AQI's 0-500 is too big, & only a range of 10 looks wildly exaggerated changes
         let minY = entries.min { $0.y < $1.y }?.y ?? 0
         let maxY = entries.max { $0.y > $1.y }?.y ?? 500
         
@@ -75,13 +76,8 @@ class CityAQIGraphViewController: UIViewController, CityAQIHistoryViewModelDeleg
         
         dataSet.mode = .cubicBezier
         dataSet.drawCirclesEnabled = false
-        dataSet.lineWidth = 2
-        dataSet.circleRadius = 4
-        dataSet.setCircleColor(.blue)
-        dataSet.highlightColor = .systemPink
-        dataSet.fillColor = .systemGreen
-        dataSet.fillAlpha = 1
-
+        dataSet.lineWidth = 1.5
+        dataSet.setColor(.systemBlue)
         return dataSet
     }
 }

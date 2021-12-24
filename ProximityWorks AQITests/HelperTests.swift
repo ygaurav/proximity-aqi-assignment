@@ -57,7 +57,7 @@ class HelperTests: XCTestCase {
     func test_AQIBandColors() {
         XCTAssertEqual(AQIBand.good.color, #colorLiteral(red: 0.4720913172, green: 0.6820913553, blue: 0.4193440676, alpha: 1))
         XCTAssertEqual(AQIBand.satisfactory.color, #colorLiteral(red: 0.7240188122, green: 0.8043723702, blue: 0.4664407969, alpha: 1))
-        XCTAssertEqual(AQIBand.moderate.color, #colorLiteral(red: 0.9970727563, green: 0.9609283805, blue: 0.4449035525, alpha: 1))
+        XCTAssertEqual(AQIBand.moderate.color, #colorLiteral(red: 0.8297700286, green: 0.8051709533, blue: 0.3766718507, alpha: 1))
         XCTAssertEqual(AQIBand.poor.color, #colorLiteral(red: 0.9262000918, green: 0.6834064126, blue: 0.3593261242, alpha: 1))
         XCTAssertEqual(AQIBand.veryPoor.color, #colorLiteral(red: 0.881423533, green: 0.3910139799, blue: 0.3079311252, alpha: 1))
         XCTAssertEqual(AQIBand.severe.color, #colorLiteral(red: 0.702395916, green: 0.2972102165, blue: 0.2253859341, alpha: 1))

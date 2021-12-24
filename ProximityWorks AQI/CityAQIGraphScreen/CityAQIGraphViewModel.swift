@@ -21,6 +21,7 @@ extension CityAQIGraphViewController {
         
         var cityAqiHistory: CityAQIHistory
         
+        //Known bug: - Timer will be suspended when application is put in background. Need to fix that.
         var timer: Timer?
         private weak var aqiService: AQIService?
         weak var viewDelegate: CityAQIHistoryViewModelDelegate?
@@ -56,7 +57,6 @@ extension CityAQIGraphViewController {
                 }
             }
         }
-        
         
         @objc private func processAqiHistory() {
             let dataPoints = cityAqiHistory.aqiHistory.segragate(withInterval: 10, overPeriod: 60*2)

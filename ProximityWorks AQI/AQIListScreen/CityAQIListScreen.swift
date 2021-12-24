@@ -18,6 +18,7 @@ class CityAQIListViewController: UIViewController, UICollectionViewDelegate, Cit
     required init?(coder: NSCoder) {
         super.init(coder: coder)
 
+        //ViewController scaffholding would be doe by a central router
         let router = Router()
         router.source = self
         viewModel = ViewModel(router: router)

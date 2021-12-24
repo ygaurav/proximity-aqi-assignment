@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum AQIBand: Int, Comparable, CustomDebugStringConvertible {
+enum AQIBand: Int, Comparable {
     
     case good = 6, satisfactory = 5, moderate = 4, poor = 3, veryPoor = 2, severe = 1
     
@@ -40,7 +40,7 @@ enum AQIBand: Int, Comparable, CustomDebugStringConvertible {
         case .satisfactory:
             return #colorLiteral(red: 0.7240188122, green: 0.8043723702, blue: 0.4664407969, alpha: 1)
         case .moderate:
-            return #colorLiteral(red: 0.9970727563, green: 0.9609283805, blue: 0.4449035525, alpha: 1)
+            return #colorLiteral(red: 0.8297700286, green: 0.8051709533, blue: 0.3766718507, alpha: 1)
         case .poor:
             return #colorLiteral(red: 0.9262000918, green: 0.6834064126, blue: 0.3593261242, alpha: 1)
         case .veryPoor:
@@ -49,21 +49,5 @@ enum AQIBand: Int, Comparable, CustomDebugStringConvertible {
             return #colorLiteral(red: 0.702395916, green: 0.2972102165, blue: 0.2253859341, alpha: 1)
         }
     }
-    
-    var debugDescription: String {
-        switch self {
-        case .good:
-            return "Good"
-        case .satisfactory:
-            return "satisfactory"
-        case .moderate:
-            return "moderate"
-        case .poor:
-            return "poor"
-        case .veryPoor:
-            return "very poor"
-        case .severe:
-            return "severe"
-        }
-    }
+
 }
