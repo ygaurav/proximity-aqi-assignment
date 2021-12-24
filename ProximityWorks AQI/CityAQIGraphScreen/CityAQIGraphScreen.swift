@@ -53,9 +53,11 @@ class CityAQIGraphViewController: UIViewController, CityAQIHistoryViewModelDeleg
     }
     
     func update(history: [DataPoint]) {
-        print(history)
         let entries = history.map { ChartDataEntry(x: $0.x, y: $0.y) }
-        
+    
+        // Graph's Y axis
+        // Min is 50 less than minimum value of chart data point
+        // Max is 50 more than maximum value of chart data point
         let minY = entries.min { $0.y < $1.y }?.y ?? 0
         let maxY = entries.max { $0.y > $1.y }?.y ?? 500
         

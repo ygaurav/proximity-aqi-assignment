@@ -62,4 +62,27 @@ class HelperTests: XCTestCase {
         XCTAssertEqual(AQIBand.veryPoor.color, #colorLiteral(red: 0.881423533, green: 0.3910139799, blue: 0.3079311252, alpha: 1))
         XCTAssertEqual(AQIBand.severe.color, #colorLiteral(red: 0.702395916, green: 0.2972102165, blue: 0.2253859341, alpha: 1))
     }
+    
+    func test_AQISegragation_AtInterval_OverPeriod() {
+        let now = Date.now
+        let nowMinus4 = now.addingTimeInterval(-4)
+        let nowMinus5 = now.addingTimeInterval(-5)
+        let nowMinus6 = now.addingTimeInterval(-6)
+        let nowMinus11 = now.addingTimeInterval(-11)
+        let nowMinus12 = now.addingTimeInterval(-12)
+        
+        let aqi = [
+            AQI(value: 5, timestamp: nowMinus12),
+            AQI(value: 4, timestamp: nowMinus11),
+            AQI(value: 3, timestamp: nowMinus6),
+            AQI(value: 2, timestamp: nowMinus5),
+            AQI(value: 1, timestamp: nowMinus4)
+        ]
+        
+        let dataPoints = aqi.segragate(withInterval: 10, overPeriod: 30)
+        
+        XCTAssertEqual(2, dataPoints.count, "Should have been 2 data points")
+        XCTAssertEqual(4, dataPoints.first?.y, "First data point should have been 4")
+        XCTAssertEqual(1, dataPoints.last?.y, "Last data point should have been 1")
+    }
 }

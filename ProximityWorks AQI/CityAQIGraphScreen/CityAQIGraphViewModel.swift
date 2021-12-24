@@ -59,26 +59,7 @@ extension CityAQIGraphViewController {
         
         
         @objc private func processAqiHistory() {
-            let totalTimePeriod: Double = 60*2  // 2 Minutes
-            
-            let fewMinsAgo = Date.now.addingTimeInterval(-totalTimePeriod)
-            
-            let interval: Double = 10           // 10 Seconds interval
-            
-            let steps = Int(floor(totalTimePeriod/interval))
-            
-            var dataPoints = [DataPoint]()
-            
-            //At every 'interval' only the last AQI update will be considered
-            //'TotalTimePeriod' is the width of graph which will shown. Older updates will be ignored.
-            
-            for period in 1...steps {
-                let cutoff = fewMinsAgo.addingTimeInterval(interval*Double(period)).timeIntervalSince1970
-                if let index = cityAqiHistory.aqiHistory.firstIndex(where: { $0.timestamp.timeIntervalSince1970 > cutoff }), cityAqiHistory.aqiHistory.indices.contains(index-1) {
-                    let aqi = cityAqiHistory.aqiHistory[index-1].value
-                    dataPoints.append(DataPoint(x: Double(-(steps-period)*Int(interval)), y: Double(aqi)))
-                }
-            }
+            let dataPoints = cityAqiHistory.aqiHistory.segragate(withInterval: 10, overPeriod: 60*2)
             
             self.viewDelegate?.update(history: dataPoints)
         }
@@ -101,6 +82,34 @@ extension Result where Success == URLSessionWebSocketTask.Message {
         
         return aqiModels
     }
+}
+
+extension Array where Element == AQI {
+    
+    func segragate(withInterval interval: Double, overPeriod period: Double) -> [DataPoint] {
+        let fewMinsAgo = Date.now.addingTimeInterval(-period)
+        
+        let steps = Int(floor(period/interval))
+        
+        assert(steps > 1)
+        
+        var dataPoints = [DataPoint]()
+        
+        //At every 'interval' only the last AQI update will be considered
+        //'TotalTimePeriod' is the width of graph which will shown. Older updates will be ignored.
+        
+        for period in 1...steps {
+            let cutoff = fewMinsAgo.addingTimeInterval(interval*Double(period))
+            
+            if let aqi = last(where: { $0.timestamp.timeIntervalSince1970 < cutoff.timeIntervalSince1970 }) {
+                let dataPoint = DataPoint(x: Double(-(steps-period)*Int(interval)), y: Double(aqi.value))
+                dataPoints.append(dataPoint)
+            }
+        }
+        
+        return dataPoints
+    }
+    
 }
 
 enum AQIMessageError: Error {
